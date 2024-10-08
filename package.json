@@ -49,6 +49,9 @@
     "react-router-dom": "^6.15.0",
     "redux-logger": "^3.0.6",
     "setprototypeof": "^1.1.0",
+    "array-first": "^1.0.2",
+    "array-last": "^1.3.0",
+    "is-sorted": "^1.0.5",
     "url-polyfill": "^1.0.10"
   },
   "devDependencies": {
