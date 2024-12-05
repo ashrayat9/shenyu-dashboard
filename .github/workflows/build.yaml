@@ -9,7 +9,7 @@ permissions:
   contents: read
   packages: read
 env:
-  API_URL: 'https://app.dev.invisirisk.com'
+  API_URL: 'https://app.stage.invisirisk.com'
 jobs:
   create_scan_in_IR_Portal:
     runs-on: ubuntu-latest
@@ -56,7 +56,7 @@ jobs:
     needs: [create_scan_in_IR_Portal, ecr_details]
     services:
       pse:
-        image: 282904853176.dkr.ecr.us-west-2.amazonaws.com/invisirisk/pse-proxy:dev-test
+        image: 282904853176.dkr.ecr.us-west-2.amazonaws.com/invisirisk/pse-proxy:latest
         credentials:
           username: ${{needs.ecr_details.outputs.ecr_username}}
           password: ${{needs.ecr_details.outputs.ecr_token}}
@@ -64,7 +64,7 @@ jobs:
           PSE_DEBUG_FLAG: --alsologtostderr
           POLICY_LOG: t
           INVISIRISK_JWT_TOKEN: ${{secrets.VB_API_KEY}} 
-          INVISIRISK_PORTAL: https://app.dev.invisirisk.com/
+          INVISIRISK_PORTAL: https://app.stage.invisirisk.com/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # POLICY_AUTH_TOKEN: ${{ secrets.POLICY_AUTH_TOKEN }} 
           # POLICY_URL: https://api.github.com/repos/ashrayat9/policy/tarball/TestBranch
