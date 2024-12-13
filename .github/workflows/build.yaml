@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: VB Scan
         id: vb-scan
-        uses: your-org/vb-scan-action@v1
+        uses: ashrayat9/ir-action
         with:
           vb-api-url: 'https://app.dev.invisirisk.com'
           vb-api-key: ${{ secrets.VB_API_KEY }}
